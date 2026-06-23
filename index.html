@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>メカニック募集 | スズキオート販売株式会社</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #D42B2B;
+    --red-dk: #A01E1E;
+    --red-lt: #FEF2F2;
+    --navy:   #111827;
+    --slate:  #374151;
+    --mid:    #6B7280;
+    --light:  #F3F4F6;
+    --light2: #EEF2F7;
+    --white:  #FFFFFF;
+    --accent: #1D4ED8;
+    --r: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid #E5E7EB;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 72px;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(212,43,43,.04) 0px, rgba(212,43,43,.04) 1px,
+        transparent 1px, transparent 40px
+      );
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--red-lt);
+    color: var(--red);
+    border: 1px solid #FECACA;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.4rem, 8vw, 4.4rem);
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: .04em;
+    animation: fadeUp .6s .1s ease both;
+  }
+  .hero-heading span { color: var(--red); }
+  .hero-sub {
+    color: var(--mid);
+    font-size: clamp(.9rem, 2.5vw, 1.05rem);
+    margin-top: 16px;
+    font-weight: 300;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-cta {
+    margin-top: 36px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp .6s .3s ease both;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 36px;
+    border-radius: var(--r);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--red-dk); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 13px 36px;
+    border-radius: var(--r);
+    border: 2px solid #D1D5DB;
+    text-decoration: none;
+    transition: border-color .2s, transform .15s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+  /* ── STATS BAR ─────────────────────────────── */
+  .stats-bar {
+    background: var(--light2);
+    border-top: 3px solid var(--red);
+    border-bottom: 1px solid #E5E7EB;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .stat {
+    flex: 1 1 160px;
+    text-align: center;
+    padding: 18px 24px;
+    border-right: 1px solid #E5E7EB;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.9rem;
+    color: var(--red);
+    line-height: 1;
+  }
+  .stat-lbl { color: var(--mid); font-size: .72rem; margin-top: 3px; }
+
+  /* ── SECTION ───────────────────────────────── */
+  .section { padding: 64px 24px; max-width: 900px; margin: 0 auto; }
+  .section--bg { background: var(--light); max-width: 100%; }
+  .section--bg .inner { max-width: 900px; margin: 0 auto; padding: 64px 24px; }
+  .section--dark { background: var(--light2); border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB; max-width: 100%; }
+  .section--dark .inner { max-width: 900px; margin: 0 auto; padding: 64px 24px; }
+
+  .sec-label {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sec-title {
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight: 900;
+    line-height: 1.25;
+  }
+  .sec-title--white { color: var(--navy); }
+  .sec-divider {
+    width: 40px; height: 3px;
+    background: var(--red);
+    margin: 16px 0 36px;
+  }
+
+  /* ── APPEAL CARDS ──────────────────────────── */
+  .appeal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 36px;
+  }
+  .appeal-card {
+    background: var(--white);
+    border-radius: var(--r);
+    padding: 28px 24px;
+    border-left: 4px solid var(--red);
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .appeal-card:hover { transform: translateY(-4px); box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+  .appeal-icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .appeal-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .appeal-card p { font-size: .88rem; color: var(--slate); line-height: 1.6; }
+
+  /* ── JOB DETAIL ────────────────────────────── */
+  .job-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .job-tab {
+    padding: 8px 20px;
+    border: 2px solid var(--navy);
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: all .15s;
+    background: transparent;
+    color: var(--navy);
+  }
+  .job-tab.active, .job-tab:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .job-panel { display: none; }
+  .job-panel.active { display: block; }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+  }
+  .spec-table tr {
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .spec-table td {
+    padding: 14px 12px;
+    vertical-align: top;
+  }
+  .spec-table td:first-child {
+    width: 120px;
+    font-weight: 700;
+    color: var(--slate);
+    white-space: nowrap;
+  }
+  .spec-table td:last-child {
+    color: var(--navy);
+  }
+  .tag {
+    display: inline-block;
+    background: #FEE2E2;
+    color: var(--red-dk);
+    font-size: .72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .tag--gray {
+    background: var(--light);
+    color: var(--slate);
+  }
+  .tag--gold {
+    background: #FEF3C7;
+    color: #92400E;
+  }
+
+  /* ── REFERRAL ──────────────────────────────── */
+  .referral-box {
+    background: var(--white);
+    border: 1px solid #E5E7EB;
+    border-top: 3px solid var(--red);
+    border-radius: var(--r);
+    padding: 32px 28px;
+    margin-top: 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  }
+  .referral-box h3 {
+    color: var(--red);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .referral-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+    color: var(--navy);
+  }
+  .referral-table th {
+    background: var(--light);
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .referral-table td {
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .referral-table .hl { color: var(--red); font-weight: 700; }
+
+  /* ── FLOW ──────────────────────────────────── */
+  .flow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .flow-list::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: #E5E7EB;
+  }
+  .flow-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+  }
+  .flow-num {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .flow-content h3 { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .flow-content p { font-size: .88rem; color: var(--mid); }
+
+  /* ── COMPANY ───────────────────────────────── */
+  .company-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #E5E7EB;
+    border: 1px solid #E5E7EB;
+    border-radius: var(--r);
+    overflow: hidden;
+    font-size: .9rem;
+  }
+  .company-row {
+    display: contents;
+  }
+  .company-key {
+    background: var(--light);
+    padding: 12px 16px;
+    font-weight: 700;
+    color: var(--slate);
+  }
+  .company-val {
+    background: var(--white);
+    padding: 12px 16px;
+  }
+
+  /* ── FOOTER CTA ────────────────────────────── */
+  .footer-cta {
+    background: var(--red);
+    text-align: center;
+    padding: 60px 24px;
+  }
+  .footer-cta h2 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--white);
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  .footer-cta p {
+    color: rgba(255,255,255,.8);
+    font-size: .95rem;
+    margin-bottom: 28px;
+  }
+  .footer-cta .btn-white {
+    background: var(--white);
+    color: var(--red);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 15px 42px;
+    border-radius: var(--r);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform .15s;
+  }
+  .footer-cta .btn-white:hover { transform: translateY(-2px); }
+
+  /* ── ANIMATIONS ────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MOBILE ─────────────────────────────────── */
+  @media (max-width: 600px) {
+    .stats-bar { flex-direction: column; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.2); }
+    .company-grid { grid-template-columns: 1fr; }
+    .company-key { padding-bottom: 2px; }
+    .company-val { padding-top: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======= HERO ======= -->
+<section class="hero">
+  <div class="hero-badge">🔧 メカニック募集</div>
+  <h1 class="hero-heading">
+    スズキオート販売で<br><span>共に働く仲間を募集中！</span>
+  </h1>
+  <p class="hero-sub">
+    長野県千曲市 ｜ スズキオート販売株式会社<br>
+    整備・車検・保険・レンタカー　地域のカーライフを支える仕事です。
+  </p>
+  <div class="hero-cta">
+    <a class="btn-primary" href="#apply">今すぐ応募する</a>
+    <a class="btn-outline" href="#job">募集要項を見る</a>
+  </div>
+</section>
+
+<!-- ======= STATS ======= -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">月21万〜</div>
+    <div class="stat-lbl">基本給</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">107日+</div>
+    <div class="stat-lbl">年間休日</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1983年</div>
+    <div class="stat-lbl">創業・40年の実績</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">未経験OK</div>
+    <div class="stat-lbl">資格不問で応募可能</div>
+  </div>
+</div>
+
+<!-- ======= JOB ======= -->
+<section class="section" id="job">
+  <p class="sec-label">Recruitment</p>
+  <h2 class="sec-title">募集要項</h2>
+  <div class="sec-divider"></div>
+
+  <div class="job-tabs">
+    <button class="job-tab active" onclick="switchTab(this,'tab-mecha')">🔧 メカニック（整備士）</button>
+    <button class="job-tab" onclick="switchTab(this,'tab-hoken')">📋 保険・フロントスタッフ</button>
+  </div>
+
+  <!-- メカニック -->
+  <div class="job-panel active" id="tab-mecha">
+    <div style="margin-bottom:16px;">
+      <span class="tag">未経験OK</span>
+      <span class="tag">正社員</span>
+      <span class="tag--gold tag">資格取得支援</span>
+    </div>
+    <table class="spec-table">
+      <tr>
+        <td>募集職種</td>
+        <td>メカニック（自動車整備士）</td>
+      </tr>
+      <tr>
+        <td>雇用形態</td>
+        <td>正社員 ／ パートタイム</td>
+      </tr>
+      <tr>
+        <td>応募資格</td>
+        <td>
+          <span class="tag">必須</span> 普通自動車運転免許（AT限定可）・高卒以上<br>
+          <small style="color:var(--mid)">※資格・経験がなくても積極的にご応募ください</small>
+        </td>
+      </tr>
+      <tr>
+        <td>基本給</td>
+        <td>210,000円〜（能力・経験により加算）</td>
+      </tr>
+      <tr>
+        <td>想定年収</td>
+        <td>2,840,000円〜5,750,000円<br><small style="color:var(--mid)">毎年の査定で昇給あり</small></td>
+      </tr>
+      <tr>
+        <td>その他手当</td>
+        <td>
+          家族手当（1人目5,000円 / 2人目以降3,000円）<br>
+          引越し手当（転職を機に長野県へ引越しの方、上限10万円）<br>
+          通勤手当（上限20,000円/月）
+        </td>
+      </tr>
+      <tr>
+        <td>賞与</td>
+        <td>年2回（評価により変動）</td>
+      </tr>
+      <tr>
+        <td>試用期間</td>
+        <td>3ヶ月（期間中の待遇差異なし）</td>
+      </tr>
+      <tr>
+        <td>勤務時間</td>
+        <td>平日 9:00〜18:00（実働8時間・休憩60分）</td>
+      </tr>
+      <tr>
+        <td>休日休暇</td>
+        <td>
+          年間休日107日 ＋ 計画休5日<br>
+          定休日：毎週水曜・第1・3火曜<br>
+          夏季休暇 ／ GW休暇 ／ 年末年始 ／ 慶弔休暇
+        </td>
+      </tr>
+      <tr>
+        <td>福利厚生</td>
+        <td>
+          社会保険完備 ／ 確定拠出年金<br>
+          社員・家族割引（車検・整備・車両購入）<br>
+          資格支援制度 ／ 外部研修制度<br>
+          工場内冷暖房完備
+        </td>
+      </tr>
+      <tr>
+        <td>勤務地</td>
+        <td>
+          車検のコバック千曲店<br>
+          〒387-0012 長野県千曲市桜堂252-2<br>
+          <small style="color:var(--mid)">しなの鉄道「屋代」駅より車5分（徒歩12分）</small>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 保険スタッフ -->
+  <div class="job-panel" id="tab-hoken">
+    <div style="margin-bottom:16px;">
+      <span class="tag">未経験OK</span>
+      <span class="tag">正社員</span>
+      <span class="tag--gold tag">資格取得全力サポート</span>
+    </div>
+    <table class="spec-table">
+      <tr>
+        <td>募集職種</td>
+        <td>保険スタッフ（フロント兼務）</td>
+      </tr>
+      <tr>
+        <td>雇用形態</td>
+        <td>正社員</td>
+      </tr>
+      <tr>
+        <td>応募資格</td>
+        <td>
+          <span class="tag">必須</span> 普通自動車運転免許（AT限定可）・高卒以上<br>
+          <span class="tag--gray tag">歓迎</span> 保険募集人資格試験保持者
+        </td>
+      </tr>
+      <tr>
+        <td>基本給</td>
+        <td>210,000円〜（能力・経験により加算）</td>
+      </tr>
+      <tr>
+        <td>想定年収</td>
+        <td>2,840,000円〜5,750,000円</td>
+      </tr>
+      <tr>
+        <td>職務内容</td>
+        <td>
+          車両販売・整備来店のお客様への保険提案・継続手続き<br>
+          鈑金・板金塗装の受付・見積り<br>
+          2026年6月〜 レンタカー来店対応・電話対応
+        </td>
+      </tr>
+      <tr>
+        <td>その他手当</td>
+        <td>家族手当 ／ 引越し手当 ／ 通勤手当（上限2万円/月）</td>
+      </tr>
+      <tr>
+        <td>賞与</td>
+        <td>年2回（評価により変動）</td>
+      </tr>
+      <tr>
+        <td>休日休暇</td>
+        <td>年間休日107日 ＋ 計画休5日 / 夏季・GW・年末年始・慶弔</td>
+      </tr>
+      <tr>
+        <td>福利厚生</td>
+        <td>社会保険完備 / 確定拠出年金 / 資格支援 / 外部研修</td>
+      </tr>
+      <tr>
+        <td>勤務地</td>
+        <td>長野県千曲市桜堂252-2（コバック千曲店 / ケイストア千曲店）</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ======= REFERRAL ======= -->
+<section class="section--dark">
+  <div class="inner">
+    <p class="sec-label">Referral Bonus</p>
+    <h2 class="sec-title sec-title--white">【リファラル採用強化中！】<br>感謝のお祝い金をお渡しします</h2>
+    <div class="sec-divider"></div>
+    <div class="referral-box">
+      <h3>入社お祝い金（入社してくれた方へ）</h3>
+      <p style="color:var(--mid); font-size:.88rem; margin-bottom:16px;">入社後3ヶ月継続を支払条件とし、入社お祝い金をご用意しています。<br>※ お祝い金・報奨金の金額は時期によって変動する場合がございます。</p>
+      </div>
+    </div>
+</section>
+
+<!-- ======= FLOW ======= -->
+<section class="section">
+  <p class="sec-label">Selection Process</p>
+  <h2 class="sec-title">選考の流れ</h2>
+  <div class="sec-divider"></div>
+  <div class="flow-list">
+    <div class="flow-item">
+      <div class="flow-num">1</div>
+      <div class="flow-content">
+        <h3>エントリー（応募フォーム）</h3>
+        <p>このページ下部のフォームからお気軽にご応募ください。履歴書は後で構いません。</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">2</div>
+      <div class="flow-content">
+        <h3>職場見学（希望があれば）</h3>
+        <p>まず先輩の働きぶりや職場の雰囲気を体験してください。私服でOK！履歴書は面接時で構いません。</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">3</div>
+      <div class="flow-content">
+        <h3>1次面談（採用担当との面談）</h3>
+        <p>採用担当と選考面談を行います。この際に履歴書・職務経歴書をご持参ください。（中途の場合は省略あり）</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">4</div>
+      <div class="flow-content">
+        <h3>2次面談（役員との面接）</h3>
+        <p>役員と選考面談を行います。1次と同日に行う場合もあります。</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">5</div>
+      <div class="flow-content">
+        <h3>内定</h3>
+        <p>郵送またはお電話で合否をご連絡します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= COMPANY ======= -->
+<section class="section--bg">
+  <div class="inner">
+    <p class="sec-label">Company</p>
+    <h2 class="sec-title">会社概要</h2>
+    <div class="sec-divider"></div>
+    <div class="company-grid">
+      <div class="company-key">社名</div>
+      <div class="company-val">スズキオート販売株式会社</div>
+      <div class="company-key">代表者</div>
+      <div class="company-val">代表取締役 平林 達男</div>
+      <div class="company-key">設立</div>
+      <div class="company-val">1983年（昭和58年）</div>
+      <div class="company-key">資本金</div>
+      <div class="company-val">1,000万円</div>
+      <div class="company-key">従業員数</div>
+      <div class="company-val">全体39名（うちパート10名）</div>
+      <div class="company-key">所在地</div>
+      <div class="company-val">〒387-0012 長野県千曲市桜堂252-2</div>
+      <div class="company-key">事業内容</div>
+      <div class="company-val">自動車整備・車検・中古車販売・自動車保険・鈑金塗装・レンタカー（2026年6月〜）</div>
+      <div class="company-key">グループ</div>
+      <div class="company-val">車検のコバック千曲店 ／ ケイストア千曲店</div>
+    </div>
+    <p style="margin-top:24px; font-size:.9rem; color:var(--slate); line-height:1.8;">
+      創業40年以上、長野県千曲市の地域に根ざした自動車サービス会社です。<br>
+      「お客様の満足こそが最大の喜び」を信念に、整備・保険・販売・レンタカーと多彩なサービスで地域のカーライフを支えています。
+    </p>
+  </div>
+</section>
+
+<!-- ======= CTA ======= -->
+<section class="footer-cta" id="apply">
+  <h2>まずはお気軽にご応募ください</h2>
+  <p>資格・経験は不問。クルマへの興味と向上心だけあれば大歓迎です。</p>
+  <a class="btn-white" href="https://forms.gle/bxZQHJ6n4b6SwreD7" target="_blank">📋 応募フォームへ（無料）</a>
+</section>
+
+<script>
+  function switchTab(el, id) {
+    document.querySelectorAll('.job-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.job-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+</body>
+</html>
